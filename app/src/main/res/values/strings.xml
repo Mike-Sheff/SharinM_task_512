@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Выбор картинки для элемента из внешнего файла</string>
+    <string name="textMessageDeleteOrClear">Будьте внимательны: значение ещё не задано!</string>
+    <string name="textMessageTwoPoint">Точку можно поставить только один раз!</string>
+    <string name="textButtonClear">C</string>
+    <string name="textButtonDelete">Del</string>
+    <string name="textErrorValue">Нет значения слагаемого для операции!</string>
+    <string name="textErrorZeroValue1">Ноль нельзя разделить!</string>
+    <string name="textErrorZeroValue2">На ноль делить нельзя!</string>
+    <string name="textMenuActionMain">Обычный</string>
+    <string name="textMenuActionEngineer">Инженерный</string>
+    <string name="textMessageNotification">Кнопка в разработке!</string>
+    <string name="textMessangNotFile">Error: Файл %s отсутствует!</string>
+</resources>

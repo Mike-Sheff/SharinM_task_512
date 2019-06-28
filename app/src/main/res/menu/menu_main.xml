@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ru.netologia.sharinm_task_322.MainActivity">
+
+
+    <item
+        android:id="@+id/menuSettings"
+        android:title="Settings"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menuCalculatorMain"
+            android:orderInCategory="100"
+            android:title="@string/textMenuActionMain"
+            android:checked="true"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menuCalculatorEngineer"
+            android:orderInCategory="100"
+            android:title="@string/textMenuActionEngineer"
+            app:showAsAction="never"/>
+    </group>
+</menu>

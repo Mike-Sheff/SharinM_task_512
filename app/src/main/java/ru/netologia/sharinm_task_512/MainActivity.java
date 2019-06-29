@@ -1,16 +1,24 @@
 package ru.netologia.sharinm_task_512;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menuSettings:
                 intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,0);
                  break;
         }
 
@@ -97,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         txtDisplayOperation = findViewById(R.id.displayOperation);
 
         NumberButtonClickListener numberListener = new NumberButtonClickListener();
-        int[] buttonIdNumber = new int[] { R.id.button0, R.id.button1, R.id.button2,
+        int[] buttonIdNumber = new int[] {  R.id.button1, R.id.button2,//TODO: R.id.button0,
                                      R.id.button3, R.id.button4, R.id.button5,
                                      R.id.button6, R.id.button7, R.id.button8,
                                      R.id.button9,R.id.buttonPoint};

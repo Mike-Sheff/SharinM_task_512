@@ -1,8 +1,12 @@
 package ru.netologia.sharinm_task_512;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -30,11 +34,32 @@ public class MainActivity extends AppCompatActivity {
     private String value2 = " ";
     private LinearLayout linearLayout;
 
+    public String pathFile;
+    public static SharedPreferences sharedPreferences;
+    public static String PATH_FILE_IMAGE = "Image";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+
+        sharedPreferences = getSharedPreferences("MySharedPreference", MODE_PRIVATE);
+        File myFile = new File(sharedPreferences.getString(PATH_FILE_IMAGE, ""));
+
+        if(myFile.exists()){
+
+            ImageView image = findViewById(R.id.viewPicture);
+
+            Bitmap mybitmap = BitmapFactory.decodeFile(myFile.getAbsolutePath());
+
+            image.setImageBitmap(mybitmap);
+
+            Toast.makeText(MainActivity.this, "Image", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.this, "Not image", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     @Override
@@ -90,8 +115,26 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menuSettings:
                 intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivityForResult(intent,0);
-                 break;
+                startActivity(intent);
+
+                File myFile = new File(sharedPreferences.getString(PATH_FILE_IMAGE, ""));
+
+                if(myFile.exists()){
+
+                    ImageView image = findViewById(R.id.viewPicture);
+
+                    Bitmap mybitmap = BitmapFactory.decodeFile(myFile.getAbsolutePath());
+
+                    image.setImageBitmap(mybitmap);
+
+                    Toast.makeText(MainActivity.this, "Image", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Not image", Toast.LENGTH_SHORT).show();
+
+                }
+
+                recreate();
+                break;
         }
 
         item.setChecked(true);

@@ -1,5 +1,7 @@
 package ru.netologia.sharinm_task_512;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -28,9 +30,9 @@ public class SettingsActivity extends AppCompatActivity {
 
                 if (myFile.exists()) {
 
-                    //TODO: мне не понятно, как реализовать тут загрузку найденного файла.
-
-                    Toast.makeText(SettingsActivity.this, "", Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor myEditor = MainActivity.sharedPreferences.edit();
+                    myEditor.putString(MainActivity.PATH_FILE_IMAGE, myFile.getAbsolutePath());
+                    myEditor.apply();
 
                     finish();
                 }

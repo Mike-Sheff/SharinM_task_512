@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+    <ImageView
         android:id="@+id/viewPicture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
@@ -48,116 +47,6 @@
             android:text="0"
             android:textAlignment="textEnd"
             android:textSize="15dp" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_chainStyle="spread">
-
-            <TextView
-                android:id="@+id/surname1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="S"
-                android:textColor="@color/colorText"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/surname2"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/surname2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="h"
-                android:textColor="@color/colorText"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/surname3"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/surname1"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <TextView
-                android:id="@+id/surname3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="a"
-                android:textColor="@color/colorText"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/surname4"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/surname2"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <TextView
-                android:id="@+id/surname4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="r"
-                android:textColor="@color/colorText"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/surname5"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/surname3"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <TextView
-                android:id="@+id/surname5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="i"
-                android:textColor="@color/colorText"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/surname6"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/surname4"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <TextView
-                android:id="@+id/surname6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="n"
-                android:textColor="@color/colorText"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/constraint2"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/surname5"
-                tools:layout_editor_absoluteY="0dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraint2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toEndOf="@+id/surname6"
-                tools:layout_editor_absoluteY="0dp">
-
-                <TextView
-                    android:id="@+id/surname7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="M"
-                    android:textColor="@color/colorText2"
-                    android:textSize="10dp"
-                    app:layout_constraintEnd_toStartOf="@+id/surname8"
-                    tools:layout_editor_absoluteY="0dp" />
-
-                <TextView
-                    android:id="@+id/surname8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="."
-                    android:textColor="@color/colorText2"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toEndOf="@id/surname7" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/linearLayoutPanel"

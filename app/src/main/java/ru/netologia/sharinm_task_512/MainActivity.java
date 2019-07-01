@@ -45,12 +45,16 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
         sharedPreferences = getSharedPreferences("MySharedPreference", MODE_PRIVATE);
+    }
+
+    @Override
+    protected  void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode,data);
+
         File myFile = new File(sharedPreferences.getString(PATH_FILE_IMAGE, ""));
 
+        ImageView image = findViewById(R.id.viewPicture);
         if(myFile.exists()){
-
-            ImageView image = findViewById(R.id.viewPicture);
-
             Bitmap mybitmap = BitmapFactory.decodeFile(myFile.getAbsolutePath());
 
             image.setImageBitmap(mybitmap);
@@ -58,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Image", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(MainActivity.this, "Not image", Toast.LENGTH_SHORT).show();
-
         }
+
+        recreate();
     }
 
     @Override
@@ -115,25 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.menuSettings:
                 intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-
-                File myFile = new File(sharedPreferences.getString(PATH_FILE_IMAGE, ""));
-
-                if(myFile.exists()){
-
-                    ImageView image = findViewById(R.id.viewPicture);
-
-                    Bitmap mybitmap = BitmapFactory.decodeFile(myFile.getAbsolutePath());
-
-                    image.setImageBitmap(mybitmap);
-
-                    Toast.makeText(MainActivity.this, "Image", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Not image", Toast.LENGTH_SHORT).show();
-
-                }
-
-                recreate();
+                startActivityForResult(intent, 0);
                 break;
         }
 

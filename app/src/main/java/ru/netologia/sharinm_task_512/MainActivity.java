@@ -2,27 +2,18 @@ package ru.netologia.sharinm_task_512;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private String value2 = " ";
     private LinearLayout linearLayout;
 
-    public String pathFile;
     public static SharedPreferences sharedPreferences;
     public static String PATH_FILE_IMAGE = "Image";
 
@@ -54,12 +44,14 @@ public class MainActivity extends AppCompatActivity {
         File myFile = new File(sharedPreferences.getString(PATH_FILE_IMAGE, ""));
 
         ImageView image = findViewById(R.id.viewPicture);
-        if(myFile.exists()){
+
+        if(myFile.exists()) {
+
             Bitmap mybitmap = BitmapFactory.decodeFile(myFile.getAbsolutePath());
 
             image.setImageBitmap(mybitmap);
 
-            Toast.makeText(MainActivity.this, "Image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Image " + myFile.getAbsolutePath(), Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(MainActivity.this, "Not image", Toast.LENGTH_SHORT).show();
         }

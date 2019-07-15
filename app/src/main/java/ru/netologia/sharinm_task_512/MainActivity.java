@@ -1,7 +1,10 @@
 package ru.netologia.sharinm_task_512;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -13,6 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,19 +41,18 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
         sharedPreferences = getSharedPreferences("MySharedPreference", MODE_PRIVATE);
+
+        SelectFile();
     }
 
-    @Override
-    protected  void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode,data);
-
+    private void SelectFile(){
         File myFile = new File(sharedPreferences.getString(PATH_FILE_IMAGE, ""));
 
         ImageView image = findViewById(R.id.viewPicture);
 
-        if(myFile.exists()) {
+        if (myFile.exists()) {
 
-            Bitmap mybitmap = BitmapFactory.decodeFile(myFile.getAbsolutePath());
+            Bitmap mybitmap = BitmapFactory.decodeFile(myFile.getPath());
 
             image.setImageBitmap(mybitmap);
 
@@ -55,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(MainActivity.this, "Not image", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected  void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        SelectFile();
 
         recreate();
     }
